@@ -29,21 +29,19 @@ public class ApostaService {
         this.modelMapper = modelMapper;
     }
 
-    public ApostaResponseDTO salvar(Aposta aposta){
-        try{
-
+    public ApostaResponseDTO salvar(Aposta aposta) {
+        try {
             Optional<Competicao> opCompeticao = competicaoRepository.findByNome(aposta.getCompeticao().getNome());
             opCompeticao.ifPresent(aposta::setCompeticao);
             return entityToDto(apostaRepository.save(aposta));
 
-        }catch (Exception ex){
-            throw new ApostaInvalidaException("Erro ao gravar aposta",ex);
+        } catch (Exception ex) {
+            throw new ApostaInvalidaException("Erro ao gravar aposta", ex);
         }
     }
 
-    private ApostaResponseDTO entityToDto(Aposta aposta){
-
-        return this.modelMapper.map(aposta, ApostaResponseDTO.class );
+    private ApostaResponseDTO entityToDto(Aposta aposta) {
+        return this.modelMapper.map(aposta, ApostaResponseDTO.class);
     }
 
     public List<Aposta> listarTodas() {

@@ -26,24 +26,22 @@ public class ApostaController {
     }
 
     @PostMapping
-    public ResponseEntity<ApostaResponseDTO> salvar(@RequestBody @Valid ApostaRequestDTO apostaRequestDTO){
+    public ResponseEntity<ApostaResponseDTO> salvar(@RequestBody @Valid ApostaRequestDTO apostaRequestDTO) {
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(apostaService.salvar(dtoToEntity(apostaRequestDTO)));
     }
 
     @GetMapping
-    public ResponseEntity<List<Aposta>> consultarTodas(){
+    public ResponseEntity<List<Aposta>> consultarTodas() {
         return ResponseEntity.status(HttpStatus.OK).body(apostaService.listarTodas());
     }
 
     @GetMapping(value = "/{id}")
-    public ResponseEntity<Aposta> consultarPorId(@PathVariable @Valid UUID id){
+    public ResponseEntity<Aposta> consultarPorId(@PathVariable @Valid UUID id) {
         return ResponseEntity.status(HttpStatus.OK).body(apostaService.consultarPorId(id));
-
-
     }
 
-    private Aposta dtoToEntity(ApostaRequestDTO apReq){
-        return modelMapper.map(apReq,Aposta.class);
+    private Aposta dtoToEntity(ApostaRequestDTO apReq) {
+        return modelMapper.map(apReq, Aposta.class);
     }
 }

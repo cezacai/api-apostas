@@ -1,0 +1,19 @@
+version: '3.3'
+services:
+  db:
+    image: postgres:latest
+    container_name: postgres
+    environment:
+      - POSTGRES_DB=betdb
+      - POSTGRES_USER=cezacai
+      - POSTGRES_PASSWORD=caio7310
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    ports:
+      - '5432:5432'
+    networks:
+      - my-network
+volumes:
+  pgdata:
+networks:
+  my-network:

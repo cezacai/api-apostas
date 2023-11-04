@@ -1,20 +1,17 @@
-package com.cezacai.apiapostas.entitys;
+package com.cezacai.apiapostas.entity;
 
-
-import com.cezacai.apiapostas.entitys.enums.ResultadoEnum;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.time.LocalDate;
 import java.util.UUID;
 
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
+@Getter
+@Setter
 @Entity
 @Table(name = "tb_aposta")
 public class Aposta {
@@ -30,7 +27,7 @@ public class Aposta {
     private String tipo;
 
     @NotNull(message = "resultado inválido")
-    private ResultadoEnum resultado;
+    private String resultado;
 
     @NotNull(message = "valor inválido")
     private Double valor;
@@ -41,7 +38,7 @@ public class Aposta {
     @NotNull(message = "data inválida")
     private LocalDate data;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "competicao_ID")
     private Competicao competicao;
 }

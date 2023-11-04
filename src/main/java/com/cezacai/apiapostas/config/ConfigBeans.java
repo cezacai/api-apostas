@@ -1,4 +1,4 @@
-package com.cezacai.apiapostas.configs;
+package com.cezacai.apiapostas.config;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;

@@ -2,7 +2,7 @@ package com.cezacai.apiapostas.controller;
 
 import com.cezacai.apiapostas.dtos.in.ApostaRequestDTO;
 import com.cezacai.apiapostas.dtos.out.ApostaResponseDTO;
-import com.cezacai.apiapostas.entity.Aposta;
+import com.cezacai.apiapostas.domain.Aposta;
 import com.cezacai.apiapostas.services.ApostaService;
 import jakarta.validation.Valid;
 import org.modelmapper.ModelMapper;

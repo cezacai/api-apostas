@@ -1,6 +1,6 @@
-package com.cezacai.apiapostas.services.repositories;
+package com.cezacai.apiapostas.repositories;
 
-import com.cezacai.apiapostas.entity.Aposta;
+import com.cezacai.apiapostas.domain.Aposta;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.UUID;

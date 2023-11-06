@@ -1,4 +1,4 @@
-package com.cezacai.apiapostas.entity;
+package com.cezacai.apiapostas.domain;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;

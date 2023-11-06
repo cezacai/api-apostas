@@ -1,6 +1,6 @@
-package com.cezacai.apiapostas.services.repositories;
+package com.cezacai.apiapostas.repositories;
 
-import com.cezacai.apiapostas.entity.Competicao;
+import com.cezacai.apiapostas.domain.Competicao;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

@@ -1,12 +1,12 @@
 package com.cezacai.apiapostas.services;
 
 import com.cezacai.apiapostas.dtos.out.ApostaResponseDTO;
-import com.cezacai.apiapostas.entity.Aposta;
-import com.cezacai.apiapostas.entity.Competicao;
+import com.cezacai.apiapostas.domain.Aposta;
+import com.cezacai.apiapostas.domain.Competicao;
 import com.cezacai.apiapostas.exception.ApostaInvalidaException;
 import com.cezacai.apiapostas.exception.ApostaNaoEncontradaException;
-import com.cezacai.apiapostas.services.repositories.ApostaRepository;
-import com.cezacai.apiapostas.services.repositories.CompeticaoRepository;
+import com.cezacai.apiapostas.repositories.ApostaRepository;
+import com.cezacai.apiapostas.repositories.CompeticaoRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
@@ -17,10 +17,9 @@ import java.util.UUID;
 @Service
 public class ApostaService {
 
-    private ApostaRepository apostaRepository;
-    private CompeticaoRepository competicaoRepository;
-
-    private ModelMapper modelMapper;
+    private final ApostaRepository apostaRepository;
+    private final CompeticaoRepository competicaoRepository;
+    private final ModelMapper modelMapper;
 
 
     public ApostaService(ApostaRepository apostaRepository, CompeticaoRepository competicaoRepository, ModelMapper modelMapper) {
@@ -41,7 +40,7 @@ public class ApostaService {
     }
 
     private ApostaResponseDTO entityToDto(Aposta aposta) {
-        return this.modelMapper.map(aposta, ApostaResponseDTO.class);
+        return modelMapper.map(aposta, ApostaResponseDTO.class);
     }
 
     public List<Aposta> listarTodas() {
